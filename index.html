@@ -45,6 +45,20 @@
       "openingHours": "Mo-Fr 08:00-18:00"
     }
     </script>
+
+    <!-- SPA Redirect Handler para GitHub Pages -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          // Atualiza a URL sem recarregar a página
+          if (redirect !== '/') {
+            window.history.replaceState(null, null, redirect);
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

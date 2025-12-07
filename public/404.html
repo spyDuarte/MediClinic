@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecionando... | Dr. Perito</title>
+    <script>
+      // Script para lidar com rotas SPA no GitHub Pages
+      // Redireciona 404 para index.html preservando o path
+      const path = window.location.pathname;
+      const repo = '/MediClinic';
+
+      // Se estiver em uma rota do app, redireciona para index com o path como query
+      if (path.startsWith(repo)) {
+        const route = path.slice(repo.length) || '/';
+        sessionStorage.setItem('redirect', route + window.location.search + window.location.hash);
+        window.location.replace(repo + '/');
+      }
+    </script>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+      }
+      .loader {
+        text-align: center;
+        color: #0284c7;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid #e0f2fe;
+        border-top-color: #0284c7;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 16px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="spinner"></div>
+      <p>Redirecionando...</p>
+    </div>
+  </body>
+</html>
