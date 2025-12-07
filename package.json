@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Website profissional para médico perito - Desenvolvido com metodologia científica",
+  "homepage": "https://spyDuarte.github.io/MediClinic",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
